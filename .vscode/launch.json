@@ -7,8 +7,8 @@
         {
             "type": "msedge",
             "request": "launch",
-            "name": "Open portfolio_v2_navy.html",
-            "file": "/Users/joey/Documents/GitHub/itsKannapi.github.io/portfolio_v2_navy.html"
+            "name": "Open index.html",
+            "file": "/Users/joey/Documents/GitHub/itsKannapi.github.io/index.html"
         }
     ]
 }
