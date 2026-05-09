@@ -167,8 +167,8 @@ textarea.form-input{resize:vertical;min-height:120px;line-height:1.7;}
   <canvas id="bg-canvas"></canvas>
   <div class="home-content">
     <p class="home-eyebrow">Portfolio · 2026</p>
-    <h1 class="home-title">Hobbyist,<br>Engineer,<br><em>Gamer.</em></h1>
-    <p class="home-sub">I am a tech enthusiast — and I spend my free time surrounding myself in tech experiences.</p>
+    <h1 class="home-title">Hobbyist,<br>Gamer,<br><em>Engineer.</em></h1>
+    <p class="home-sub">Chicago-Based tech enthusiast — I spend my free time surrounding myself in tech experiences.</p>
     <div class="home-ctas">
       <button class="btn-primary" onclick="showPage('projects')">View projects</button>
       <button class="btn-secondary" onclick="showPage('contact')">Get in touch</button>
@@ -391,25 +391,45 @@ textarea.form-input{resize:vertical;min-height:120px;line-height:1.7;}
     <p class="section-tag">Contact</p>
     <h2 class="section-title">Let's work<br><em>together.</em></h2>
     <p class="contact-intro">Have a project in mind, want to collaborate, or just want to say hi? Fill out the form and I'll get back to you within 24 hours.</p>
-    <div>
-      <div class="form-row">
-        <div class="form-group"><label class="form-label">Name</label><input class="form-input" type="text" placeholder="Jane Smith"></div>
-        <div class="form-group"><label class="form-label">Email</label><input class="form-input" type="email" placeholder="jane@example.com"></div>
+    <div id="contact-form-wrap">
+      <form id="contact-form" onsubmit="handleSubmit(event)">
+        <div class="form-row">
+          <div class="form-group"><label class="form-label">Name</label><input class="form-input" type="text" name="name" placeholder="Jane Smith" required></div>
+          <div class="form-group"><label class="form-label">Email</label><input class="form-input" type="email" name="email" placeholder="jane@example.com" required></div>
+        </div>
+        <div class="form-group"><label class="form-label">Subject</label><input class="form-input" type="text" name="subject" placeholder="What's this about?"></div>
+        <div class="form-group"><label class="form-label">Message</label><textarea class="form-input" name="message" placeholder="Tell me about your project..."></textarea></div>
+        <button type="submit" class="submit-btn">Send message →</button>
+      </form>
+      <div id="contact-success" style="display:none;text-align:center;padding:3rem 0;">
+        <div style="font-size:36px;margin-bottom:1rem;">✉️</div>
+        <h3 style="font-family:var(--serif);font-size:26px;color:var(--fg);margin-bottom:0.75rem;">Thank you for reaching out!</h3>
+        <p style="color:var(--fg2);font-size:14px;margin-bottom:2rem;opacity:0.85;">I'll get back to you as soon as possible.</p>
+        <button class="btn-primary" onclick="showPage('home')">← Back to home</button>
       </div>
-      <div class="form-group"><label class="form-label">Subject</label><input class="form-input" type="text" placeholder="What's this about?"></div>
-      <div class="form-group"><label class="form-label">Message</label><textarea class="form-input" placeholder="Tell me about your project..."></textarea></div>
-      <button class="submit-btn" onclick="submitForm()">Send message →</button>
-      <div class="success-msg" id="success-msg">Message sent! I'll get back to you soon.</div>
     </div>
     <div class="contact-social">
       <span class="social-link" onclick="window.open('https://github.com/itsKannapi', '_blank')">GitHub ↗</span>
-      <span class="social-link" onclick="window.open('https://www.linkedin.com/in/joseph-tamondong-249587293/', '_blank')"> LinkedIn ↗</span>
-      <span class="social-link" onclick="window.open('https://x.com/kankankannapi', '_blank')"> Twitter ↗</span>
+      <span class="social-link" onclick="window.open('https://www.linkedin.com/in/joseph-tamondong-249587293/', '_blank')">LinkedIn ↗</span>
+      <span class="social-link" onclick="window.open('https://x.com/kankankannapi', '_blank')">Twitter ↗</span>
     </div>
   </div>
 </div>
 
 <script>
+async function handleSubmit(e) {
+  e.preventDefault();
+  const form = e.target;
+  const data = new FormData(form);
+  await fetch('https://formspree.io/f/xpqbozvz', {
+    method: 'POST',
+    body: data,
+    headers: { 'Accept': 'application/json' }
+  });
+  document.getElementById('contact-form').style.display = 'none';
+  document.getElementById('contact-success').style.display = 'block';
+  form.reset();
+}
 function showPage(id){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   document.querySelectorAll('.nav-link').forEach(l=>l.classList.remove('active'));
