@@ -1,125 +1,204 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Joseph Tamondong</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap');
 *{margin:0;padding:0;box-sizing:border-box;}
 :root{
-  --c1:#033047;
-  --c2:#304C62;
-  --c3:#5C677D;
-  --c4:#D9D9D9;
-  --c5:#F4F3EE;
-  --fg:#F4F3EE;
-  --fg2:#D9D9D9;
-  --fg3:#5C677D;
-  --bg:#033047;
-  --bg2:#0d3d58;
-  --bg3:#304C62;
-  --accent:#7eb8d4;
-  --accent2:#a8cfe0;
+  --c1:#033047;--c2:#304C62;--c3:#5C677D;--c4:#D9D9D9;--c5:#F4F3EE;
+  --fg:#F4F3EE;--fg2:#D9D9D9;--fg3:#5C677D;
+  --bg:#033047;--bg2:#0d3d58;--bg3:#304C62;
+  --accent:#7eb8d4;--accent2:#a8cfe0;
   --border:rgba(217,217,217,0.12);
-  --serif:'DM Serif Display',serif;
-  --sans:'DM Sans',sans-serif;
+  --serif:'DM Serif Display',serif;--sans:'DM Sans',sans-serif;
   --nav-h:60px;
 }
 body{font-family:var(--sans);background:var(--bg);color:var(--fg);font-size:15px;line-height:1.7;min-height:600px;}
 
 /* NAV */
-nav{height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;padding:0 2rem;border-bottom:0.5px solid var(--border);background:rgba(3,48,71,0.92);backdrop-filter:blur(12px);position:sticky;top:0;z-index:200;}
+nav{height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;padding:0 2rem;border-bottom:0.5px solid var(--border);background:rgba(3,48,71,0.95);backdrop-filter:blur(12px);position:sticky;top:0;z-index:200;}
 .nav-logo{font-family:var(--serif);font-size:18px;letter-spacing:-0.02em;cursor:pointer;color:var(--fg);}
 .nav-links{display:flex;gap:0;align-items:center;}
-.nav-link{font-size:13px;color:var(--fg3);cursor:pointer;padding:6px 14px;border-radius:20px;transition:all 0.2s;letter-spacing:0.02em;font-weight:400;}
+.nav-link{font-size:13px;color:var(--fg3);cursor:pointer;padding:6px 14px;border-radius:20px;transition:all 0.2s;letter-spacing:0.02em;}
 .nav-link:hover,.nav-link.active{color:var(--fg);background:rgba(217,217,217,0.1);}
 
 /* PAGES */
-.page{display:none;animation:fadeUp 0.4s ease;}
+.page{display:none;animation:fadeUp 0.35s ease;}
 .page.active{display:block;}
-@keyframes fadeUp{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
+.inner-page{padding:3rem 2rem;max-width:800px;margin:0 auto;}
 
-/* HOME — FULL CANVAS */
-#page-home{position:relative;min-height:580px;display:none;}
-#page-home.active{display:block;}
+/* HOME */
+#page-home{position:relative;min-height:580px;}
 #bg-canvas{position:absolute;top:0;left:0;width:100%;height:100%;z-index:0;}
 .home-content{position:relative;z-index:1;padding:4rem 2.5rem 3rem;max-width:780px;margin:0 auto;}
 .home-eyebrow{font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent2);margin-bottom:1.5rem;opacity:0.8;}
-.home-title{font-family:var(--serif);font-size:clamp(44px,6vw,68px);line-height:1.05;letter-spacing:-0.02em;margin-bottom:1.5rem;color:var(--fg);}
+.home-title{font-family:var(--serif);font-size:clamp(44px,6vw,68px);line-height:1.05;letter-spacing:-0.02em;margin-bottom:1.5rem;}
 .home-title em{font-style:italic;color:var(--accent);}
 .home-sub{font-size:15px;color:var(--fg2);max-width:420px;line-height:1.9;margin-bottom:2.5rem;opacity:0.85;}
 .home-ctas{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:4rem;}
 .btn-primary{padding:11px 26px;background:var(--accent);color:var(--c1);border-radius:30px;cursor:pointer;font-size:13px;font-weight:500;letter-spacing:0.03em;transition:all 0.2s;border:none;font-family:var(--sans);}
 .btn-primary:hover{background:var(--accent2);}
-.btn-secondary{padding:11px 26px;background:transparent;color:var(--fg2);border-radius:30px;cursor:pointer;font-size:13px;font-weight:400;letter-spacing:0.03em;transition:all 0.2s;border:0.5px solid var(--border);font-family:var(--sans);}
+.btn-secondary{padding:11px 26px;background:transparent;color:var(--fg2);border-radius:30px;cursor:pointer;font-size:13px;font-weight:400;transition:all 0.2s;border:0.5px solid var(--border);font-family:var(--sans);}
 .btn-secondary:hover{background:rgba(217,217,217,0.08);border-color:rgba(217,217,217,0.3);}
 .home-divider{border:none;border-top:0.5px solid var(--border);margin:0 0 2rem;}
 .home-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:var(--border);border:0.5px solid var(--border);border-radius:12px;overflow:hidden;}
 .home-card{background:rgba(3,48,71,0.6);backdrop-filter:blur(8px);padding:1.25rem;cursor:pointer;transition:background 0.2s;}
 .home-card:hover{background:rgba(48,76,98,0.7);}
 .home-card-label{font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--fg3);margin-bottom:6px;}
-.home-card-title{font-size:14px;font-weight:500;color:var(--fg);}
+.home-card-title{font-size:14px;font-weight:500;}
 .home-card-arrow{font-size:12px;color:var(--fg3);margin-top:4px;}
 
-/* INNER PAGES */
-.inner-page{padding:3rem 2rem;max-width:780px;margin:0 auto;}
+/* SECTION HEADERS */
 .section-tag{font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent2);margin-bottom:1rem;opacity:0.8;}
-.section-title{font-family:var(--serif);font-size:36px;line-height:1.15;letter-spacing:-0.02em;margin-bottom:1.5rem;color:var(--fg);}
+.section-title{font-family:var(--serif);font-size:36px;line-height:1.15;letter-spacing:-0.02em;margin-bottom:1.5rem;}
 .section-title em{font-style:italic;color:var(--accent);}
 
 /* ABOUT */
 .about-body{color:var(--fg2);font-size:15px;line-height:1.9;max-width:560px;opacity:0.9;}
 .about-body p{margin-bottom:1rem;}
-
-/* SKILLS — categorized with icons */
 .skills-section{margin-top:2.5rem;}
 .skills-section-label{font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--fg3);margin-bottom:14px;padding-bottom:8px;border-bottom:0.5px solid var(--border);}
 .skills-categories{display:flex;flex-direction:column;gap:1.5rem;margin-bottom:2rem;}
-.skill-category{display:flex;flex-direction:column;gap:10px;}
-.skill-cat-title{font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--accent2);opacity:0.7;}
+.skill-cat-title{font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--accent2);opacity:0.7;margin-bottom:10px;}
 .skill-pills{display:flex;flex-wrap:wrap;gap:8px;}
 .skill-pill{display:flex;align-items:center;gap:8px;padding:7px 14px;background:rgba(48,76,98,0.5);border:0.5px solid rgba(217,217,217,0.12);border-radius:8px;font-size:13px;color:var(--fg2);transition:all 0.2s;cursor:default;}
 .skill-pill:hover{background:rgba(92,103,125,0.4);border-color:rgba(168,207,224,0.3);color:var(--fg);}
 .skill-pill img{width:16px;height:16px;object-fit:contain;}
-.skill-dot{width:8px;height:8px;border-radius:50%;background:var(--accent);opacity:0.7;flex-shrink:0;}
+.skill-dot{width:7px;height:7px;border-radius:50%;background:var(--accent);opacity:0.7;flex-shrink:0;}
+.easter-egg-btn{display:inline-flex;align-items:center;gap:8px;margin-top:2rem;padding:8px 16px;background:rgba(126,184,212,0.06);border:0.5px solid rgba(126,184,212,0.15);border-radius:8px;font-size:12px;color:rgba(168,207,224,0.45);cursor:pointer;transition:all 0.3s;letter-spacing:0.04em;}
+.easter-egg-btn:hover{background:rgba(126,184,212,0.12);border-color:rgba(126,184,212,0.3);color:rgba(168,207,224,0.8);}
+.easter-egg-btn .egg-icon{font-size:13px;transition:transform 0.3s;}
+.easter-egg-btn:hover .egg-icon{transform:rotate(20deg);}
 
-/* GAMING */
-.tab-bar{display:flex;gap:4px;margin-bottom:2rem;background:rgba(48,76,98,0.4);padding:4px;border-radius:10px;border:0.5px solid var(--border);width:fit-content;}
-.tab{padding:7px 18px;border-radius:7px;cursor:pointer;font-size:13px;color:var(--fg3);transition:all 0.2s;font-family:var(--sans);}
-.tab:hover{color:var(--fg);}
-.tab.active{background:rgba(3,48,71,0.8);color:var(--fg);font-weight:500;}
-.subtab-page{display:none;}
-.subtab-page.active{display:block;}
-.stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px;margin-bottom:2rem;}
-.stat-card{background:rgba(48,76,98,0.3);border:0.5px solid var(--border);border-radius:10px;padding:1rem;text-align:center;}
-.stat-val{font-family:var(--serif);font-size:28px;color:var(--accent);line-height:1;}
-.stat-label{font-size:12px;color:var(--fg3);margin-top:4px;letter-spacing:0.03em;}
-.game-row{display:flex;align-items:center;justify-content:space-between;padding:14px 0;border-bottom:0.5px solid var(--border);}
+/* ══ GAMING PAGE ══ */
+#page-gaming{display:none;}
+#page-gaming.active{display:block;}
+.gaming-wrapper{max-width:900px;margin:0 auto;}
+
+/* BANNER */
+.gaming-banner{position:relative;background:linear-gradient(135deg,#021e2e 0%,#0d3d58 50%,#1a4a6b 100%);border-bottom:1px solid rgba(126,184,212,0.2);overflow:hidden;padding:2rem 2rem 0;}
+.gaming-banner::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(45deg,transparent,transparent 40px,rgba(126,184,212,0.015) 40px,rgba(126,184,212,0.015) 41px);pointer-events:none;}
+.gaming-back{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--fg3);cursor:pointer;margin-bottom:1.5rem;transition:color 0.2s;letter-spacing:0.03em;}
+.gaming-back:hover{color:var(--accent);}
+.gaming-hero{display:grid;grid-template-columns:220px 1fr;gap:0;align-items:end;}
+.player-photo-wrap{width:220px;height:280px;overflow:hidden;border-radius:4px 4px 0 0;align-self:flex-end;}
+.player-photo{width:100%;height:100%;object-fit:cover;object-position:top center;display:block;}
+.player-identity{padding:0 0 1.5rem 2rem;}
+.player-flag-row{display:flex;align-items:center;gap:8px;margin-bottom:10px;}
+.player-flag{font-size:18px;}
+.player-country{font-size:12px;color:var(--fg3);letter-spacing:0.05em;}
+.player-tag{font-family:var(--serif);font-size:clamp(36px,5vw,56px);line-height:1;letter-spacing:-0.02em;color:var(--fg);margin-bottom:4px;}
+.player-realname{font-size:14px;color:var(--fg3);margin-bottom:1rem;font-style:italic;}
+.player-team-row{display:flex;align-items:center;gap:10px;margin-bottom:1.2rem;}
+.player-role-badge{padding:4px 12px;background:rgba(126,184,212,0.12);border:0.5px solid rgba(126,184,212,0.25);border-radius:20px;font-size:11px;color:var(--accent2);letter-spacing:0.06em;text-transform:uppercase;}
+.player-game-badge{padding:4px 12px;background:rgba(92,103,125,0.2);border:0.5px solid var(--border);border-radius:20px;font-size:11px;color:var(--fg3);letter-spacing:0.06em;text-transform:uppercase;}
+
+/* GAMING BODY — sidebar + main */
+.gaming-body{display:grid;grid-template-columns:220px 1fr;gap:0;}
+.gaming-sidebar{background:#021e2e;border-right:1px solid rgba(126,184,212,0.1);padding:1rem;display:flex;flex-direction:column;gap:8px;}
+.gaming-main{padding:1.5rem;}
+
+/* LIQUIPEDIA INFOBOX */
+.lp-infobox{border:0.5px solid rgba(126,184,212,0.15);border-radius:4px;overflow:hidden;font-size:12px;}
+.lp-infobox-header{background:linear-gradient(90deg,#1a3a2a,#1e4a30);color:#a8d8a0;font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;padding:7px 12px;text-align:center;border-bottom:0.5px solid rgba(126,184,212,0.1);}
+.lp-header-default{background:linear-gradient(90deg,#0a3347,#1e3a4a)!important;color:var(--accent2)!important;}
+.lp-header-val{background:linear-gradient(90deg,#1a2a3a,#1e3a4a)!important;color:var(--accent2)!important;}
+.lp-header-cs2{background:linear-gradient(90deg,#2a1a1a,#3a1e1e)!important;color:#e8a090!important;}
+.lp-infobox-row{display:flex;border-bottom:0.5px solid rgba(217,217,217,0.06);}
+.lp-infobox-row:last-child{border-bottom:none;}
+.lp-infobox-key{width:90px;flex-shrink:0;padding:7px 10px;font-weight:700;color:var(--fg2);background:rgba(0,0,0,0.2);border-right:0.5px solid rgba(217,217,217,0.06);line-height:1.4;font-size:11px;}
+.lp-infobox-val{padding:7px 10px;color:var(--fg2);flex:1;line-height:1.4;}
+.lp-val-active{color:#4caf82;}
+.lp-val-link{color:var(--accent);}
+.lp-links-row{display:flex;justify-content:center;gap:8px;padding:10px;}
+.lp-link-btn{width:34px;height:34px;background:rgba(48,76,98,0.4);border:0.5px solid var(--border);border-radius:4px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--fg3);transition:all 0.2s;}
+.lp-link-btn:hover{background:rgba(126,184,212,0.15);color:var(--accent2);border-color:rgba(126,184,212,0.3);}
+.lp-history-row{display:flex;flex-direction:column;padding:7px 10px;border-bottom:0.5px solid rgba(217,217,217,0.06);gap:2px;}
+.lp-history-row:last-child{border-bottom:none;}
+.lp-history-date{font-size:10px;color:var(--fg3);font-style:italic;}
+.lp-history-team{font-size:12px;font-weight:500;color:var(--accent);}
+
+/* STATS */
+.stats-section-title{font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--fg3);margin-bottom:12px;padding-bottom:8px;border-bottom:0.5px solid var(--border);display:flex;justify-content:space-between;align-items:center;}
+.player-section{position:relative;margin-bottom:2rem;}
+.game-switcher{display:flex;gap:4px;}
+.gs-btn{padding:4px 12px;border-radius:20px;border:0.5px solid var(--border);background:transparent;color:var(--fg3);font-size:11px;font-family:var(--sans);cursor:pointer;letter-spacing:0.04em;transition:all 0.2s;}
+.gs-btn.active{background:var(--accent);color:var(--c1);border-color:var(--accent);font-weight:600;}
+.stats-panel{opacity:0;transform:translateY(6px);transition:opacity 0.3s ease,transform 0.3s ease;position:absolute;pointer-events:none;width:100%;}
+.stats-panel.active-panel{opacity:1;transform:translateY(0);position:relative;pointer-events:all;}
+.stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:0.5px solid var(--border);border-radius:8px;overflow:hidden;margin-bottom:1rem;}
+.stat-box{background:#051e2d;padding:14px 12px;text-align:center;}
+.stat-box-val{font-size:22px;font-weight:600;color:var(--fg);line-height:1;}
+.stat-box-val.green{color:#4caf82;}
+.stat-box-val.gold{color:#f0b429;}
+.stat-box-val.blue{color:var(--accent);}
+.stat-box-label{font-size:10px;color:var(--fg3);letter-spacing:0.06em;text-transform:uppercase;margin-top:4px;}
+
+/* MOST PLAYED */
+.game-row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:0.5px solid rgba(217,217,217,0.05);}
 .game-row:last-child{border-bottom:none;}
-.game-name{font-size:14px;font-weight:500;color:var(--fg);}
-.game-hours{font-size:13px;color:var(--fg3);}
-.bar-wrap{width:140px;height:3px;background:rgba(92,103,125,0.3);border-radius:2px;overflow:hidden;margin-top:5px;}
-.bar-fill{height:100%;background:var(--accent);border-radius:2px;}
-.periph-section{margin-bottom:2rem;}
-.periph-title{font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--fg3);margin-bottom:12px;}
-.periph-list{display:flex;flex-direction:column;gap:8px;}
-.periph-item{display:flex;justify-content:space-between;padding:12px 16px;background:rgba(48,76,98,0.3);border:0.5px solid var(--border);border-radius:9px;}
-.periph-category{font-size:13px;color:var(--fg3);}
-.periph-name{font-size:13px;font-weight:500;color:var(--fg);}
+.game-info{display:flex;align-items:center;gap:10px;}
+.game-icon{width:28px;height:28px;background:rgba(48,76,98,0.5);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:13px;}
+.game-name{font-size:13px;font-weight:500;color:var(--fg);}
+.game-rank{font-size:11px;color:var(--accent2);}
+.game-right{text-align:right;}
+.game-hours{font-size:13px;color:var(--fg2);}
+.game-bar-wrap{width:80px;height:3px;background:rgba(92,103,125,0.3);border-radius:2px;margin-top:4px;margin-left:auto;}
+.game-bar-fill{height:100%;background:var(--accent);border-radius:2px;}
+
+/* PERIPHERALS */
+.periph-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:1.5rem;}
+.periph-card{padding:10px 12px;background:rgba(48,76,98,0.2);border:0.5px solid var(--border);border-radius:8px;}
+.periph-key{font-size:10px;letter-spacing:0.06em;text-transform:uppercase;color:var(--fg3);margin-bottom:3px;}
+.periph-val{font-size:12px;color:var(--fg);font-weight:500;}
+
+/* CROSSHAIR */
+.crosshair-cards{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.crosshair-card{background:rgba(48,76,98,0.25);border:0.5px solid var(--border);border-radius:10px;padding:14px 16px;}
+.crosshair-card-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;}
+.crosshair-card-game{font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent2);font-weight:600;}
+.crosshair-card-hint{font-size:11px;color:var(--fg3);transition:color 0.2s;}
+.crosshair-code{font-family:monospace;font-size:13px;background:rgba(0,0,0,0.35);border:0.5px solid var(--border);border-radius:6px;padding:12px 14px;color:var(--accent2);cursor:pointer;letter-spacing:0.05em;word-break:break-all;transition:background 0.2s;}
+.crosshair-code:hover{background:rgba(126,184,212,0.08);border-color:rgba(126,184,212,0.25);}
+
+/* TOURNAMENT TABLE */
+.tourney-place{width:42px;text-align:center;font-size:12px;font-weight:700;letter-spacing:0.04em;padding:4px 2px;border-radius:4px;display:inline-block;}
+.gold-place{background:rgba(255,180,50,0.15);color:#f0b429;border:0.5px solid rgba(255,180,50,0.3);}
+.silver-place{background:rgba(180,180,200,0.15);color:#b0b8c8;border:0.5px solid rgba(180,180,200,0.3);}
+.bronze-place{background:rgba(180,100,50,0.15);color:#c87941;border:0.5px solid rgba(180,100,50,0.3);}
+.lp-table{width:100%;border-collapse:collapse;background:#051e2d;border:0.5px solid var(--border);border-radius:8px;overflow:hidden;}
+.lp-table thead tr{background:linear-gradient(90deg,#0a3347,#304C62);border-bottom:0.5px solid var(--border);}
+.lp-table th{padding:10px 16px;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent2);font-weight:600;text-align:left;}
+.lp-table td{padding:12px 16px;font-size:13px;color:var(--fg2);border-bottom:0.5px solid var(--border);vertical-align:middle;}
+.lp-table tbody tr:last-child td{border-bottom:none;}
+.lp-table tbody tr{transition:background 0.15s;}
+.lp-table tbody tr:hover{background:rgba(48,76,98,0.3);}
+.lp-tourney-name{font-weight:500;color:var(--fg)!important;}
+.lp-date{color:var(--fg3)!important;font-size:12px!important;}
+.lp-result{font-size:12px!important;font-weight:500;}
+.lp-result.win{color:#4caf82!important;}
+.lp-result.loss{color:var(--fg3)!important;}
 
 /* PROJECTS */
 .project-list{display:flex;flex-direction:column;gap:14px;}
 .project-card{background:rgba(48,76,98,0.25);border:0.5px solid var(--border);border-radius:12px;padding:1.25rem 1.5rem;cursor:pointer;transition:all 0.2s;}
 .project-card:hover{background:rgba(48,76,98,0.45);border-color:rgba(126,184,212,0.25);}
 .project-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px;}
-.project-name{font-size:15px;font-weight:500;color:var(--fg);}
+.project-name{font-size:15px;font-weight:500;}
 .project-arrow{font-size:13px;color:var(--fg3);}
 .project-desc{font-size:13px;color:var(--fg2);line-height:1.6;margin-bottom:10px;opacity:0.8;}
 .tag-row{display:flex;gap:6px;flex-wrap:wrap;}
 .tag{padding:3px 10px;background:rgba(92,103,125,0.3);border-radius:20px;font-size:12px;color:var(--fg3);}
-.github-banner{display:flex;align-items:center;justify-content:space-between;padding:1rem 1.5rem;background:rgba(126,184,212,0.12);border:0.5px solid rgba(126,184,212,0.25);border-radius:12px;cursor:pointer;margin-bottom:2rem;transition:all 0.2s;}
-.github-banner:hover{background:rgba(126,184,212,0.2);}
+.github-banner{display:flex;align-items:center;justify-content:space-between;padding:1rem 1.5rem;background:rgba(126,184,212,0.08);border:0.5px solid rgba(126,184,212,0.2);border-radius:12px;cursor:pointer;margin-bottom:2rem;transition:all 0.2s;}
+.github-banner:hover{background:rgba(126,184,212,0.15);}
 .github-banner-left{display:flex;align-items:center;gap:12px;}
-.github-icon{width:22px;height:22px;fill:var(--accent2);}
-.github-text{font-size:14px;font-weight:500;color:var(--fg);}
+.github-icon{width:20px;height:20px;fill:var(--accent2);}
+.github-text{font-size:14px;font-weight:500;}
 .github-sub{font-size:12px;color:var(--fg3);}
-.github-arrow{font-size:14px;color:var(--fg3);}
 
 /* RESUME */
 .resume-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:2rem;flex-wrap:wrap;gap:12px;}
@@ -127,11 +206,11 @@ nav{height:var(--nav-h);display:flex;align-items:center;justify-content:space-be
 .resume-section-title{font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--fg3);margin-bottom:1rem;padding-bottom:8px;border-bottom:0.5px solid var(--border);}
 .resume-item{margin-bottom:1.25rem;}
 .resume-item-top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:2px;}
-.resume-item-title{font-size:14px;font-weight:500;color:var(--fg);}
+.resume-item-title{font-size:14px;font-weight:500;}
 .resume-item-date{font-size:12px;color:var(--fg3);}
 .resume-item-sub{font-size:13px;color:var(--accent);margin-bottom:4px;}
 .resume-item-desc{font-size:13px;color:var(--fg2);line-height:1.7;opacity:0.8;}
-.download-btn{display:flex;align-items:center;gap:8px;padding:9px 20px;background:rgba(48,76,98,0.4);border:0.5px solid var(--border);border-radius:8px;cursor:pointer;font-size:13px;font-weight:500;transition:all 0.2s;font-family:var(--sans);color:var(--fg);}
+.download-btn{display:flex;align-items:center;gap:8px;padding:9px 20px;background:rgba(48,76,98,0.4);border:0.5px solid var(--border);border-radius:8px;cursor:pointer;font-size:13px;font-weight:500;transition:all 0.2s;font-family:var(--sans);color:var(--fg);text-decoration:none;}
 .download-btn:hover{background:rgba(92,103,125,0.4);}
 
 /* CONTACT */
@@ -143,32 +222,34 @@ nav{height:var(--nav-h);display:flex;align-items:center;justify-content:space-be
 .form-input::placeholder{color:var(--fg3);opacity:0.7;}
 textarea.form-input{resize:vertical;min-height:120px;line-height:1.7;}
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
-.submit-btn{padding:11px 28px;background:var(--accent);color:var(--c1);border-radius:30px;cursor:pointer;font-size:13px;font-weight:500;letter-spacing:0.03em;transition:all 0.2s;border:none;font-family:var(--sans);}
+.submit-btn{padding:11px 28px;background:var(--accent);color:var(--c1);border-radius:30px;cursor:pointer;font-size:13px;font-weight:500;transition:all 0.2s;border:none;font-family:var(--sans);}
 .submit-btn:hover{background:var(--accent2);}
 .contact-social{display:flex;gap:10px;margin-top:2.5rem;}
 .social-link{padding:8px 16px;background:rgba(48,76,98,0.3);border:0.5px solid var(--border);border-radius:8px;font-size:13px;cursor:pointer;color:var(--fg2);transition:all 0.2s;}
 .social-link:hover{background:rgba(92,103,125,0.4);color:var(--fg);}
-.success-msg{padding:12px 16px;background:rgba(126,184,212,0.12);border:0.5px solid rgba(126,184,212,0.3);border-radius:8px;font-size:13px;color:var(--accent2);margin-top:1rem;display:none;}
+#contact-success{display:none;text-align:center;padding:3rem 0;}
 </style>
+</head>
+<body>
 
+<!-- NAV -->
 <nav>
   <span class="nav-logo" onclick="showPage('home')">Joseph Tamondong</span>
   <div class="nav-links">
     <span class="nav-link" onclick="showPage('about')">About</span>
-    <span class="nav-link" onclick="showPage('gaming')">Gaming</span>
     <span class="nav-link" onclick="showPage('projects')">Projects</span>
     <span class="nav-link" onclick="showPage('resume')">Resume</span>
     <span class="nav-link" onclick="showPage('contact')">Contact</span>
   </div>
 </nav>
 
-<!-- HOME -->
+<!-- ══ HOME ══ -->
 <div id="page-home" class="page active">
   <canvas id="bg-canvas"></canvas>
   <div class="home-content">
     <p class="home-eyebrow">Portfolio · 2026</p>
     <h1 class="home-title">Hobbyist,<br>Gamer,<br><em>Engineer.</em></h1>
-    <p class="home-sub">Chicago-Based tech enthusiast — I spend my free time surrounding myself in tech experiences.</p>
+    <p class="home-sub">Chicago-based tech enthusiast — I spend my free time surrounding myself in tech experiences.</p>
     <div class="home-ctas">
       <button class="btn-primary" onclick="showPage('projects')">View projects</button>
       <button class="btn-secondary" onclick="showPage('contact')">Get in touch</button>
@@ -185,11 +266,6 @@ textarea.form-input{resize:vertical;min-height:120px;line-height:1.7;}
         <div class="home-card-title">What I've built</div>
         <div class="home-card-arrow">→</div>
       </div>
-      <div class="home-card" onclick="showPage('gaming')">
-        <div class="home-card-label">Gaming</div>
-        <div class="home-card-title">My setup & stats</div>
-        <div class="home-card-arrow">→</div>
-      </div>
       <div class="home-card" onclick="showPage('resume')">
         <div class="home-card-label">Resume</div>
         <div class="home-card-title">Experience & skills</div>
@@ -199,7 +275,7 @@ textarea.form-input{resize:vertical;min-height:120px;line-height:1.7;}
   </div>
 </div>
 
-<!-- ABOUT -->
+<!-- ══ ABOUT ══ -->
 <div id="page-about" class="page">
   <div class="inner-page">
     <p class="section-tag">About me</p>
@@ -210,127 +286,261 @@ textarea.form-input{resize:vertical;min-height:120px;line-height:1.7;}
       <p>I enjoy taking ideas from concept to execution — whether that's developing a personal portfolio, experimenting with home server infrastructure, or designing projects like a smart mirror.</p>
       <p>I'm particularly interested in leveraging technology to create efficient, scalable solutions while continuously expanding my technical skill set.</p>
     </div>
-
     <div class="skills-section">
       <div class="skills-section-label">Core expertise</div>
       <div class="skills-categories">
-
-        <div class="skill-category">
+        <div>
           <div class="skill-cat-title">Frontend & UI</div>
           <div class="skill-pills">
-            <div class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="">HTML5</div>
-            <div class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="">CSS3</div>
-            <div class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="">JavaScript</div>
-            <div class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="">React</div>
-            <div class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" alt="" style="filter:invert(1) brightness(0.7);">Next.js</div>
-            <div class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" alt="">Tailwind</div>
+            <div class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg">HTML5</div>
+            <div class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg">CSS3</div>
+            <div class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg">JavaScript</div>
+            <div class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg">React</div>
+            <div class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" style="filter:invert(0.7);">Next.js</div>
+            <div class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg">Tailwind</div>
           </div>
         </div>
-
-        <div class="skill-category">
+        <div>
           <div class="skill-cat-title">Backend & Databases</div>
           <div class="skill-pills">
-            <div class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="">Node.js</div>
-            <div class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="">Python</div>
-            <div class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="">PostgreSQL</div>
+            <div class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg">Node.js</div>
+            <div class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg">Python</div>
+            <div class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg">PostgreSQL</div>
             <div class="skill-pill"><span class="skill-dot"></span>REST APIs</div>
             <div class="skill-pill"><span class="skill-dot"></span>GraphQL</div>
           </div>
         </div>
-
-        <div class="skill-category">
+        <div>
           <div class="skill-cat-title">Hardware & Systems</div>
           <div class="skill-pills">
-            <div class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/arduino/arduino-original.svg" alt="">Arduino</div>
+            <div class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/arduino/arduino-original.svg">Arduino</div>
             <div class="skill-pill"><span class="skill-dot"></span>Circuit Design</div>
             <div class="skill-pill"><span class="skill-dot"></span>Embedded Systems</div>
             <div class="skill-pill"><span class="skill-dot"></span>Home Server Infra</div>
           </div>
         </div>
-
-        <div class="skill-category">
+        <div>
           <div class="skill-cat-title">Tools & Workflow</div>
           <div class="skill-pills">
-            <div class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="">Git</div>
-            <div class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="" style="filter:invert(0.7);">GitHub</div>
-            <div class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="">Figma</div>
-            <div class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg" alt="">VS Code</div>
+            <div class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg">Git</div>
+            <div class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" style="filter:invert(0.7);">GitHub</div>
+            <div class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg">Figma</div>
+            <div class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg">VS Code</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="easter-egg-btn" onclick="showPage('gaming')" title="you found it">
+      <span class="egg-icon">🎮</span> gamer profile
+    </div>
+  </div>
+</div>
+
+<!-- ══ GAMING ══ -->
+<div id="page-gaming" class="page">
+  <div class="gaming-wrapper">
+
+    <!-- BANNER -->
+    <div class="gaming-banner">
+      <div class="gaming-back" onclick="showPage('about')">← back to about</div>
+      <div class="gaming-hero">
+        <div class="player-photo-wrap">
+          <img class="player-photo" src="assets/joeypfp.jpeg" alt="Kannapi">
+        </div>
+        <div class="player-identity">
+          <div class="player-flag-row">
+            <span class="player-flag">🇺🇸</span>
+            <span class="player-country">United States</span>
+          </div>
+          <div class="player-tag">Kannapi</div>
+          <div class="player-realname">Joseph Tamondong</div>
+          <div class="player-team-row">
+            <span class="player-role-badge">Rifler / Support</span>
+            <span class="player-game-badge">Valorant · CS2</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END BANNER -->
+
+    <!-- BODY: sidebar + main -->
+    <div class="gaming-body">
+
+      <!-- SIDEBAR -->
+      <div class="gaming-sidebar">
+
+        <div class="lp-infobox">
+          <div class="lp-infobox-header lp-header-default">Player Info</div>
+          <div class="lp-infobox-row"><div class="lp-infobox-key">Handle</div><div class="lp-infobox-val">Kannapi</div></div>
+          <div class="lp-infobox-row"><div class="lp-infobox-key">Real Name</div><div class="lp-infobox-val">Joseph Tamondong</div></div>
+          <div class="lp-infobox-row"><div class="lp-infobox-key">Nationality</div><div class="lp-infobox-val">🇺🇸 United States</div></div>
+          <div class="lp-infobox-row"><div class="lp-infobox-key">Born</div><div class="lp-infobox-val">Chicago, IL</div></div>
+          <div class="lp-infobox-row"><div class="lp-infobox-key">Status</div><div class="lp-infobox-val lp-val-active">Active</div></div>
+          <div class="lp-infobox-row"><div class="lp-infobox-key">Years Active</div><div class="lp-infobox-val">2022 – <strong>Present</strong></div></div>
+          <div class="lp-infobox-row"><div class="lp-infobox-key">Role</div><div class="lp-infobox-val lp-val-link">Entry Fragger</div></div>
+          <div class="lp-infobox-row"><div class="lp-infobox-key">Games</div><div class="lp-infobox-val"><span class="lp-val-link">Valorant</span><br><span class="lp-val-link">Counter-Strike 2</span></div></div>
+        </div>
+
+        <div class="lp-infobox">
+          <div class="lp-infobox-header lp-header-default">Links</div>
+          <div class="lp-links-row">
+            <div class="lp-link-btn" onclick="window.open('https://github.com/itsKannapi','_blank')" title="GitHub">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+            </div>
+            <div class="lp-link-btn" onclick="window.open('https://www.linkedin.com/in/joseph-tamondong-249587293/','_blank')" title="LinkedIn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </div>
+            <div class="lp-link-btn" onclick="window.open('https://x.com/kankankannapi','_blank')" title="Twitter / X">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </div>
+          </div>
+        </div>
+
+        <div class="lp-infobox">
+          <div class="lp-infobox-header lp-header-val">Valorant History</div>
+          <div class="lp-history-row"><div class="lp-history-date">2023-06 — 26-01</div><div class="lp-history-team">Jollibaes</div></div>
+          <div class="lp-history-row"><div class="lp-history-date">2026-01 — Present</div><div class="lp-history-team">Amihan (inactive)</div></div>
+        </div>
+
+        <div class="lp-infobox">
+          <div class="lp-infobox-header lp-header-cs2">CS2 History</div>
+          <div class="lp-history-row"><div class="lp-history-date">2025-08 — Present</div><div class="lp-history-team">IIT Esports</div></div>
+        </div>
+
+      </div>
+      <!-- END SIDEBAR -->
+
+      <!-- MAIN -->
+      <div class="gaming-main">
+
+        <!-- CAREER STATS -->
+        <div class="player-section">
+          <div class="stats-section-title">
+            Career Stats
+            <div class="game-switcher">
+              <button class="gs-btn active" onclick="switchGame('val',this)">Valorant</button>
+              <button class="gs-btn" onclick="switchGame('cs2',this)">CS2</button>
+            </div>
+          </div>
+
+          <div id="stats-val" class="stats-panel active-panel">
+            <div class="stats-grid">
+              <div class="stat-box"><div class="stat-box-val green" id="val-kd">—</div><div class="stat-box-label">K/D Ratio</div></div>
+              <div class="stat-box"><div class="stat-box-val blue" id="val-acs">—</div><div class="stat-box-label">ACS</div></div>
+              <div class="stat-box"><div class="stat-box-val gold" id="val-hs">—</div><div class="stat-box-label">HS %</div></div>
+              <div class="stat-box"><div class="stat-box-val" id="val-hrs">—</div><div class="stat-box-label">Hours</div></div>
+              <div class="stat-box"><div class="stat-box-val blue" id="val-winrate">—</div><div class="stat-box-label">Win Rate</div></div>
+              <div class="stat-box"><div class="stat-box-val" id="val-rank" style="font-size:14px;">—</div><div class="stat-box-label">Current Rank</div></div>
+            </div>
+          </div>
+
+          <div id="stats-cs2" class="stats-panel">
+            <div class="stats-grid">
+              <div class="stat-box"><div class="stat-box-val green" id="cs2-kd">—</div><div class="stat-box-label">K/D Ratio</div></div>
+              <div class="stat-box"><div class="stat-box-val gold" id="cs2-winrate">—</div><div class="stat-box-label">Win Rate</div></div>
+              <div class="stat-box"><div class="stat-box-val green" id="cs2-hs">—</div><div class="stat-box-label">HS %</div></div>
+              <div class="stat-box"><div class="stat-box-val" id="cs2-hrs">—</div><div class="stat-box-label">Hours</div></div>
+              <div class="stat-box"><div class="stat-box-val blue" id="faceit-elo">—</div><div class="stat-box-label">Faceit ELO</div></div>
+              <div class="stat-box"><div class="stat-box-val" id="faceit-level">—</div><div class="stat-box-label">Faceit Level</div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- MOST PLAYED -->
+        <div class="stats-section-title">Most Played (as of 5/11/26)</div>
+        <div style="margin-bottom:1.5rem;">
+          <div class="game-row"><div class="game-info"><div class="game-icon">🎯</div><div><div class="game-name">Valorant</div></div></div><div class="game-right"><div class="game-hours">1562 hrs</div><div class="game-bar-wrap"><div class="game-bar-fill" style="width:100%"></div></div></div></div>
+          <div class="game-row"><div class="game-info"><div class="game-icon">💣</div><div><div class="game-name">CS2</div></div></div><div class="game-right"><div class="game-hours">1845 hrs</div><div class="game-bar-wrap"><div class="game-bar-fill" style="width:76%"></div></div></div></div>
+          <div class="game-row"><div class="game-info"><div class="game-icon">🎵</div><div><div class="game-name">osu!</div></div></div><div class="game-right"><div class="game-hours">198 hrs</div><div class="game-bar-wrap"><div class="game-bar-fill" style="width:48%"></div></div></div></div>
+        </div>
+
+        <!-- PERIPHERALS -->
+        <div class="stats-section-title">Setup & Peripherals</div>
+        <div class="periph-grid">
+          <div class="periph-card"><div class="periph-key">Mouse</div><div class="periph-val">G Pro X Superlight 2 (White)</div></div>
+          <div class="periph-card"><div class="periph-key">Keyboard</div><div class="periph-val">Wooting 60HE</div></div>
+          <div class="periph-card"><div class="periph-key">Monitor</div><div class="periph-val">LG UltraGear 27" 144Hz</div></div>
+          <div class="periph-card"><div class="periph-key">Headset</div><div class="periph-val">Moondrop Chu II</div></div>
+          <div class="periph-card"><div class="periph-key">CPU</div><div class="periph-val">Ryzen 5 5500</div></div>
+          <div class="periph-card"><div class="periph-key">GPU</div><div class="periph-val">RTX 3060 Ti</div></div>
+        </div>
+
+        <!-- CROSSHAIR -->
+        <div class="stats-section-title">Crosshair Codes</div>
+        <div class="crosshair-cards">
+          <div class="crosshair-card">
+            <div class="crosshair-card-header">
+              <span class="crosshair-card-game">Valorant</span>
+              <span class="crosshair-card-hint" id="copy-hint-val">click to copy</span>
+            </div>
+            <div class="crosshair-code" onclick="copyXhair('xhair-val','copy-hint-val')">
+              <span id="xhair-val">0;s;1;P;c;6;h;0;f;0;0l;4;0v;4;0o;0;0a;1;0f;0;1b;0;S;c;0;s;1.001</span>
+            </div>
+          </div>
+          <div class="crosshair-card">
+            <div class="crosshair-card-header">
+              <span class="crosshair-card-game">CS2</span>
+              <span class="crosshair-card-hint" id="copy-hint-cs2">click to copy</span>
+            </div>
+            <div class="crosshair-code" onclick="copyXhair('xhair-cs2','copy-hint-cs2')">
+              <span id="xhair-cs2">CSGO-uSweWF-F4v3i-yzDJ7-OEThH-CFCEB</span>
+            </div>
           </div>
         </div>
 
       </div>
+      <!-- END MAIN -->
+
     </div>
-    <button class="btn-primary" onclick="showPage('home')">← Back home</button>
+    <!-- END GAMING BODY -->
+
+    <!-- FULL-WIDTH TOURNAMENT TABLE -->
+    <div style="padding:1.5rem 2rem 3rem;">
+      <div class="stats-section-title">Tournament Placements</div>
+      <table class="lp-table">
+        <thead>
+          <tr>
+            <th>Place</th>
+            <th>Tournament</th>
+            <th>Game</th>
+            <th>Date</th>
+            <th>Result</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="tourney-place bronze-place">3rd</span></td>
+            <td class="lp-tourney-name">NECC Division II Nationals 2026</td>
+            <td><span class="player-game-badge">CS2</span></td>
+            <td class="lp-date">Spring 2026</td>
+            <td class="lp-result loss">L — Lower Bracket Finals</td>
+          </tr>
+          <tr>
+            <td><span class="tourney-place silver-place">7th–8th</span></td>
+            <td class="lp-tourney-name">NECC Division II Playoffs 2026</td>
+            <td><span class="player-game-badge">CS2</span></td>
+            <td class="lp-date">Spring 2026</td>
+            <td class="lp-result loss">L — Quarter Finals</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
   </div>
 </div>
+<!-- END GAMING PAGE -->
 
-<!-- GAMING -->
-<div id="page-gaming" class="page">
-  <div class="inner-page">
-    <p class="section-tag">Gaming</p>
-    <h2 class="section-title">Stats, setups,<br><em>&amp; obsessions.</em></h2>
-    <div class="tab-bar">
-      <span class="tab active" onclick="showTab('stats',event)">Gaming stats</span>
-      <span class="tab" onclick="showTab('peripherals',event)">Peripherals / Setup</span>
-    </div>
-    <div id="subtab-stats" class="subtab-page active">
-      <div class="stat-grid">
-        <div class="stat-card"><div class="stat-val">2,400</div><div class="stat-label">Hours played</div></div>
-        <div class="stat-card"><div class="stat-val">67%</div><div class="stat-label">Win rate</div></div>
-        <div class="stat-card"><div class="stat-val">12</div><div class="stat-label">Titles owned</div></div>
-        <div class="stat-card"><div class="stat-val">Top 5%</div><div class="stat-label">Ranked globally</div></div>
-      </div>
-      <p style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--fg3);margin-bottom:1rem;">Most played</p>
-      <div>
-        <div class="game-row"><div><div class="game-name">Valorant</div><div class="bar-wrap"><div class="bar-fill" style="width:90%"></div></div></div><div class="game-hours">860 hrs</div></div>
-        <div class="game-row"><div><div class="game-name">CS2</div><div class="bar-wrap"><div class="bar-fill" style="width:70%"></div></div></div><div class="game-hours">650 hrs</div></div>
-        <div class="game-row"><div><div class="game-name">Elden Ring</div><div class="bar-wrap"><div class="bar-fill" style="width:45%"></div></div></div><div class="game-hours">410 hrs</div></div>
-        <div class="game-row"><div><div class="game-name">Minecraft</div><div class="bar-wrap"><div class="bar-fill" style="width:30%"></div></div></div><div class="game-hours">280 hrs</div></div>
-      </div>
-    </div>
-    <div id="subtab-peripherals" class="subtab-page">
-      <div class="periph-section">
-        <div class="periph-title">Input</div>
-        <div class="periph-list">
-          <div class="periph-item"><span class="periph-category">Mouse</span><span class="periph-name">Logitech G Pro X Superlight 2</span></div>
-          <div class="periph-item"><span class="periph-category">Keyboard</span><span class="periph-name">Keychron Q1 Pro — Gateron Yellows</span></div>
-          <div class="periph-item"><span class="periph-category">Mousepad</span><span class="periph-name">Artisan Hien XL — Soft</span></div>
-        </div>
-      </div>
-      <div class="periph-section">
-        <div class="periph-title">Display & audio</div>
-        <div class="periph-list">
-          <div class="periph-item"><span class="periph-category">Monitor</span><span class="periph-name">ASUS ROG Swift 27" 240Hz</span></div>
-          <div class="periph-item"><span class="periph-category">Headset</span><span class="periph-name">Beyerdynamic DT 900 Pro X</span></div>
-          <div class="periph-item"><span class="periph-category">DAC / Amp</span><span class="periph-name">Schiit Modi + Magni Stack</span></div>
-        </div>
-      </div>
-      <div class="periph-section">
-        <div class="periph-title">Workstation</div>
-        <div class="periph-list">
-          <div class="periph-item"><span class="periph-category">CPU</span><span class="periph-name">AMD Ryzen 9 7950X</span></div>
-          <div class="periph-item"><span class="periph-category">GPU</span><span class="periph-name">NVIDIA RTX 4090 FE</span></div>
-          <div class="periph-item"><span class="periph-category">RAM</span><span class="periph-name">64GB DDR5 6000MHz</span></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- PROJECTS -->
+<!-- ══ PROJECTS ══ -->
 <div id="page-projects" class="page">
   <div class="inner-page">
     <p class="section-tag">Projects</p>
     <h2 class="section-title">Things I've<br><em>shipped.</em></h2>
-    <div class="github-banner" onclick="window.open('https://github.com/itsKannapi', '_blank')">
+    <div class="github-banner" onclick="window.open('https://github.com/itsKannapi','_blank')">
       <div class="github-banner-left">
         <svg class="github-icon" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
-        <div>
-          <div class="github-text">View all on GitHub</div>
-          <div class="github-sub">github.com/itsKannapi</div>
-        </div>
+        <div><div class="github-text">View all on GitHub</div><div class="github-sub">github.com/itsKannapi</div></div>
       </div>
-      <span class="github-arrow">↗</span>
+      <span style="font-size:14px;color:var(--fg3);">↗</span>
     </div>
     <div class="project-list">
       <div class="project-card"><div class="project-top"><span class="project-name">Clarity — Task Manager</span><span class="project-arrow">↗</span></div><p class="project-desc">A minimalist productivity app built with Next.js and Supabase. Features real-time sync, drag-and-drop, and natural language task entry.</p><div class="tag-row"><span class="tag">Next.js</span><span class="tag">TypeScript</span><span class="tag">Supabase</span></div></div>
@@ -341,7 +551,7 @@ textarea.form-input{resize:vertical;min-height:120px;line-height:1.7;}
   </div>
 </div>
 
-<!-- RESUME -->
+<!-- ══ RESUME ══ -->
 <div id="page-resume" class="page">
   <div class="inner-page">
     <div class="resume-header">
@@ -349,9 +559,7 @@ textarea.form-input{resize:vertical;min-height:120px;line-height:1.7;}
         <p class="section-tag">Resume</p>
         <h2 class="section-title" style="margin-bottom:0;">Experience &amp;<br><em>education.</em></h2>
       </div>
-      <a href="assets/resume.pdf" download class="download-btn" style="text-decoration:none;">
-        <span>↓</span> Download PDF
-      </a>
+      <a href="assets/resume.pdf" download class="download-btn">↓ Download PDF</a>
     </div>
     <div class="resume-section">
       <div class="resume-section-title">Experience</div>
@@ -364,11 +572,6 @@ textarea.form-input{resize:vertical;min-height:120px;line-height:1.7;}
         <div class="resume-item-top"><span class="resume-item-title">Full-Stack Developer</span><span class="resume-item-date">2021 – 2023</span></div>
         <div class="resume-item-sub">Linear · San Francisco, CA</div>
         <div class="resume-item-desc">Built integrations with GitHub, Figma, and Slack. Maintained the public API and contributed to the real-time sync engine.</div>
-      </div>
-      <div class="resume-item">
-        <div class="resume-item-top"><span class="resume-item-title">Frontend Developer</span><span class="resume-item-date">2019 – 2021</span></div>
-        <div class="resume-item-sub">Agency X · Chicago, IL</div>
-        <div class="resume-item-desc">Built responsive web experiences for clients across fintech, media, and e-commerce verticals.</div>
       </div>
     </div>
     <div class="resume-section">
@@ -385,7 +588,7 @@ textarea.form-input{resize:vertical;min-height:120px;line-height:1.7;}
   </div>
 </div>
 
-<!-- CONTACT -->
+<!-- ══ CONTACT ══ -->
 <div id="page-contact" class="page">
   <div class="inner-page">
     <p class="section-tag">Contact</p>
@@ -401,7 +604,7 @@ textarea.form-input{resize:vertical;min-height:120px;line-height:1.7;}
         <div class="form-group"><label class="form-label">Message</label><textarea class="form-input" name="message" placeholder="Tell me about your project..."></textarea></div>
         <button type="submit" class="submit-btn">Send message →</button>
       </form>
-      <div id="contact-success" style="display:none;text-align:center;padding:3rem 0;">
+      <div id="contact-success">
         <div style="font-size:36px;margin-bottom:1rem;">✉️</div>
         <h3 style="font-family:var(--serif);font-size:26px;color:var(--fg);margin-bottom:0.75rem;">Thank you for reaching out!</h3>
         <p style="color:var(--fg2);font-size:14px;margin-bottom:2rem;opacity:0.85;">I'll get back to you as soon as possible.</p>
@@ -409,43 +612,51 @@ textarea.form-input{resize:vertical;min-height:120px;line-height:1.7;}
       </div>
     </div>
     <div class="contact-social">
-      <span class="social-link" onclick="window.open('https://github.com/itsKannapi', '_blank')">GitHub ↗</span>
-      <span class="social-link" onclick="window.open('https://www.linkedin.com/in/joseph-tamondong-249587293/', '_blank')">LinkedIn ↗</span>
-      <span class="social-link" onclick="window.open('https://x.com/kankankannapi', '_blank')">Twitter ↗</span>
+      <span class="social-link" onclick="window.open('https://github.com/itsKannapi','_blank')">GitHub ↗</span>
+      <span class="social-link" onclick="window.open('https://www.linkedin.com/in/joseph-tamondong-249587293/','_blank')">LinkedIn ↗</span>
+      <span class="social-link" onclick="window.open('https://x.com/kankankannapi','_blank')">Twitter ↗</span>
     </div>
   </div>
 </div>
 
 <script>
-async function handleSubmit(e) {
-  e.preventDefault();
-  const form = e.target;
-  const data = new FormData(form);
-  await fetch('https://formspree.io/f/xpqbozvz', {
-    method: 'POST',
-    body: data,
-    headers: { 'Accept': 'application/json' }
-  });
-  document.getElementById('contact-form').style.display = 'none';
-  document.getElementById('contact-success').style.display = 'block';
-  form.reset();
-}
 function showPage(id){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   document.querySelectorAll('.nav-link').forEach(l=>l.classList.remove('active'));
   document.getElementById('page-'+id).classList.add('active');
-  const map={about:0,gaming:1,projects:2,resume:3,contact:4};
+  const map={about:0,projects:1,resume:2,contact:3};
   const nl=document.querySelectorAll('.nav-link');
   if(map[id]!==undefined) nl[map[id]].classList.add('active');
   if(id==='home') initCanvas();
+  if(id==='gaming' && typeof window.loadGamingStats === 'function') window.loadGamingStats();
+  window.scrollTo(0,0);
 }
-function showTab(id,e){
-  document.querySelectorAll('.subtab-page').forEach(p=>p.classList.remove('active'));
-  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
-  document.getElementById('subtab-'+id).classList.add('active');
-  e.target.classList.add('active');
+
+function switchGame(game,btn){
+  document.querySelectorAll('.stats-panel').forEach(p=>p.classList.remove('active-panel'));
+  document.querySelectorAll('.gs-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('stats-'+game).classList.add('active-panel');
+  btn.classList.add('active');
 }
-function submitForm(){document.getElementById('success-msg').style.display='block';}
+
+function copyXhair(codeId,hintId){
+  const code=document.getElementById(codeId).innerText;
+  navigator.clipboard.writeText(code);
+  const hint=document.getElementById(hintId);
+  hint.textContent='✓ copied!';
+  hint.style.color='var(--accent2)';
+  setTimeout(()=>{hint.textContent='click to copy';hint.style.color='';},2000);
+}
+
+async function handleSubmit(e){
+  e.preventDefault();
+  const form=e.target;
+  const data=new FormData(form);
+  await fetch('https://formspree.io/f/xpqbozvz',{method:'POST',body:data,headers:{'Accept':'application/json'}});
+  document.getElementById('contact-form').style.display='none';
+  document.getElementById('contact-success').style.display='block';
+  form.reset();
+}
 
 function initCanvas(){
   const canvas=document.getElementById('bg-canvas');
@@ -453,59 +664,21 @@ function initCanvas(){
   const ctx=canvas.getContext('2d');
   let W,H,pts,animId;
   const N=55;
-  function resize(){
-    const p=canvas.parentElement;
-    W=canvas.width=p.offsetWidth;
-    H=canvas.height=p.offsetHeight;
-  }
-  function makePts(){
-    pts=[];
-    for(let i=0;i<N;i++){
-      pts.push({
-        x:Math.random()*W,y:Math.random()*H,
-        vx:(Math.random()-0.5)*0.35,vy:(Math.random()-0.5)*0.35,
-        r:Math.random()*1.8+0.8
-      });
-    }
-  }
+  function resize(){const p=canvas.parentElement;W=canvas.width=p.offsetWidth;H=canvas.height=p.offsetHeight;}
+  function makePts(){pts=[];for(let i=0;i<N;i++)pts.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-0.5)*0.35,vy:(Math.random()-0.5)*0.35,r:Math.random()*1.8+0.8});}
   function draw(){
-    ctx.clearRect(0,0,W,H);
-    ctx.fillStyle='#033047';
-    ctx.fillRect(0,0,W,H);
-    for(let i=0;i<N;i++){
-      const a=pts[i];
-      for(let j=i+1;j<N;j++){
-        const b=pts[j];
-        const dx=a.x-b.x,dy=a.y-b.y;
-        const d=Math.sqrt(dx*dx+dy*dy);
-        if(d<130){
-          ctx.beginPath();
-          ctx.moveTo(a.x,a.y);
-          ctx.lineTo(b.x,b.y);
-          ctx.strokeStyle=`rgba(126,184,212,${0.18*(1-d/130)})`;
-          ctx.lineWidth=0.5;
-          ctx.stroke();
-        }
-      }
-    }
-    for(const p of pts){
-      ctx.beginPath();
-      ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
-      ctx.fillStyle='rgba(168,207,224,0.55)';
-      ctx.fill();
-    }
-    for(const p of pts){
-      p.x+=p.vx; p.y+=p.vy;
-      if(p.x<0||p.x>W) p.vx*=-1;
-      if(p.y<0||p.y>H) p.vy*=-1;
-    }
+    ctx.clearRect(0,0,W,H);ctx.fillStyle='#033047';ctx.fillRect(0,0,W,H);
+    for(let i=0;i<N;i++){const a=pts[i];for(let j=i+1;j<N;j++){const b=pts[j];const dx=a.x-b.x,dy=a.y-b.y,d=Math.sqrt(dx*dx+dy*dy);if(d<130){ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.strokeStyle=`rgba(126,184,212,${0.18*(1-d/130)})`;ctx.lineWidth=0.5;ctx.stroke();}}}
+    for(const p of pts){ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fillStyle='rgba(168,207,224,0.55)';ctx.fill();}
+    for(const p of pts){p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1;}
     animId=requestAnimationFrame(draw);
   }
-  if(animId) cancelAnimationFrame(animId);
-  resize();
-  makePts();
-  draw();
+  if(animId)cancelAnimationFrame(animId);resize();makePts();draw();
   window.addEventListener('resize',()=>{resize();makePts();});
 }
 setTimeout(initCanvas,100);
 </script>
+
+<script src="js/stats.js"></script>
+</body>
+</html>
