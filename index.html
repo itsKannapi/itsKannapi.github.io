@@ -69,10 +69,16 @@ nav{height:var(--nav-h);display:flex;align-items:center;justify-content:space-be
 .skill-pill:hover{background:rgba(92,103,125,0.4);border-color:rgba(168,207,224,0.3);color:var(--fg);}
 .skill-pill img{width:16px;height:16px;object-fit:contain;}
 .skill-dot{width:7px;height:7px;border-radius:50%;background:var(--accent);opacity:0.7;flex-shrink:0;}
-.easter-egg-btn{display:inline-flex;align-items:center;gap:8px;margin-top:2rem;padding:8px 16px;background:rgba(126,184,212,0.06);border:0.5px solid rgba(126,184,212,0.15);border-radius:8px;font-size:12px;color:rgba(168,207,224,0.45);cursor:pointer;transition:all 0.3s;letter-spacing:0.04em;}
-.easter-egg-btn:hover{background:rgba(126,184,212,0.12);border-color:rgba(126,184,212,0.3);color:rgba(168,207,224,0.8);}
-.easter-egg-btn .egg-icon{font-size:13px;transition:transform 0.3s;}
-.easter-egg-btn:hover .egg-icon{transform:rotate(20deg);}
+.easter-egg-wrap{display:flex;margin-top:2rem;width:46px;overflow:visible;}
+.easter-egg-btn{position:relative;display:inline-flex;align-items:center;justify-content:center;width:42px;min-height:40px;padding:0 0.85rem;border:none;border-radius:5px;background:transparent;color:#2c9caf;outline:2px solid rgba(44,156,175,0.34);font-size:12px;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;cursor:pointer;overflow:hidden;white-space:nowrap;transition:width 1000ms,color 1000ms,transform 1000ms,outline-color 1000ms,box-shadow 1000ms;}
+.easter-egg-btn::before{content:"";position:absolute;left:-50px;top:0;width:0;height:100%;background-color:#2c9caf;transform:skewX(45deg);z-index:0;transition:width 1000ms;}
+.easter-egg-btn:hover,.easter-egg-btn:focus-visible{width:186px;color:#fff;transform:scale(1.08);outline-color:#70bdca;box-shadow:4px 5px 17px -4px #268391;}
+.easter-egg-btn:hover::before,.easter-egg-btn:focus-visible::before{width:250%;}
+.easter-egg-btn .egg-icon,.easter-egg-btn .egg-label{position:relative;z-index:1;}
+.easter-egg-btn .egg-icon{font-size:15px;line-height:1;transition:transform 1000ms;}
+.easter-egg-btn .egg-label{display:inline-block;max-width:0;opacity:0;overflow:hidden;transition:max-width 1000ms,opacity 600ms,margin-left 1000ms;}
+.easter-egg-btn:hover .egg-icon,.easter-egg-btn:focus-visible .egg-icon{transform:rotate(20deg);}
+.easter-egg-btn:hover .egg-label,.easter-egg-btn:focus-visible .egg-label{max-width:130px;opacity:1;margin-left:10px;}
 
 /* ══ GAMING PAGE ══ */
 #page-gaming{display:none;}
@@ -114,9 +120,16 @@ nav{height:var(--nav-h);display:flex;align-items:center;justify-content:space-be
 .lp-infobox-val{padding:7px 10px;color:var(--fg2);flex:1;line-height:1.4;}
 .lp-val-active{color:#4caf82;}
 .lp-val-link{color:var(--accent);}
-.lp-links-row{display:flex;justify-content:center;gap:8px;padding:10px;}
-.lp-link-btn{width:34px;height:34px;background:rgba(48,76,98,0.4);border:0.5px solid var(--border);border-radius:4px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--fg3);transition:all 0.2s;}
+.lp-links-row{display:flex;justify-content:center;flex-wrap:wrap;gap:8px;padding:10px;}
+.lp-link-btn{width:34px;height:34px;background:rgba(48,76,98,0.4);border:0.5px solid var(--border);border-radius:4px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--fg3);text-decoration:none;transition:all 0.2s;}
 .lp-link-btn:hover{background:rgba(126,184,212,0.15);color:var(--accent2);border-color:rgba(126,184,212,0.3);}
+.lp-brand-icon{width:16px;height:16px;background:currentColor;display:block;-webkit-mask:var(--brand-icon) center/contain no-repeat;mask:var(--brand-icon) center/contain no-repeat;}
+.lp-brand-faceit{--brand-icon:url('https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/faceit.svg');}
+.lp-brand-instagram{--brand-icon:url('https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/instagram.svg');}
+.lp-brand-steam{--brand-icon:url('https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/steam.svg');}
+.lp-brand-x{--brand-icon:url('https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/x.svg');}
+.lp-brand-youtube{--brand-icon:url('https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/youtube.svg');}
+.lp-brand-twitch{--brand-icon:url('https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/twitch.svg');}
 .lp-history-row{display:flex;flex-direction:column;padding:7px 10px;border-bottom:0.5px solid rgba(217,217,217,0.06);gap:2px;}
 .lp-history-row:last-child{border-bottom:none;}
 .lp-history-date{font-size:10px;color:var(--fg3);font-style:italic;}
@@ -249,7 +262,7 @@ textarea.form-input{resize:vertical;min-height:120px;line-height:1.7;}
   <div class="home-content">
     <p class="home-eyebrow">Portfolio · 2026</p>
     <h1 class="home-title">Hobbyist,<br>Gamer,<br><em>Engineer.</em></h1>
-    <p class="home-sub">Chicago-based tech enthusiast — I spend my free time surrounding myself in tech experiences.</p>
+    <p class="home-sub">Chicago-based tech enthusiast — nothing but tech in my life</p>
     <div class="home-ctas">
       <button class="btn-primary" onclick="showPage('projects')">View projects</button>
       <button class="btn-secondary" onclick="showPage('contact')">Get in touch</button>
@@ -301,20 +314,23 @@ textarea.form-input{resize:vertical;min-height:120px;line-height:1.7;}
           </div>
         </div>
         <div>
+          
           <div class="skill-cat-title">Backend & Databases</div>
           <div class="skill-pills">
-            <div class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg">Node.js</div>
+            <div class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg">Java</div>
             <div class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg">Python</div>
-            <div class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg">PostgreSQL</div>
-            <div class="skill-pill"><span class="skill-dot"></span>REST APIs</div>
-            <div class="skill-pill"><span class="skill-dot"></span>GraphQL</div>
+            <div class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg">C++</div>
+            <div class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg">MySQL</div>
+            <!-- <div class="skill-pill"><span class="skill-dot"></span>GraphQL</div> -->
           </div>
         </div>
         <div>
           <div class="skill-cat-title">Hardware & Systems</div>
           <div class="skill-pills">
             <div class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/arduino/arduino-original.svg">Arduino</div>
-            <div class="skill-pill"><span class="skill-dot"></span>Circuit Design</div>
+            <div class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kicad/kicad-original.svg">KiCAD</div>
+            <div class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg">Docker</div>
+            <div class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/proxmox/proxmox-original.svg">Proxmox</div>
             <div class="skill-pill"><span class="skill-dot"></span>Embedded Systems</div>
             <div class="skill-pill"><span class="skill-dot"></span>Home Server Infra</div>
           </div>
@@ -324,14 +340,17 @@ textarea.form-input{resize:vertical;min-height:120px;line-height:1.7;}
           <div class="skill-pills">
             <div class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg">Git</div>
             <div class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" style="filter:invert(0.7);">GitHub</div>
-            <div class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg">Figma</div>
+            <!-- <div class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg">Figma</div> -->
             <div class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg">VS Code</div>
           </div>
         </div>
       </div>
     </div>
-    <div class="easter-egg-btn" onclick="showPage('gaming')" title="you found it">
-      <span class="egg-icon">🎮</span> gamer profile
+    <div class="easter-egg-wrap">
+      <button class="easter-egg-btn" type="button" onclick="showPage('gaming')" title="you found it" aria-label="Open gamer profile">
+        <span class="egg-icon">🎮</span>
+        <span class="egg-label">hover me</span>
+      </button>
     </div>
   </div>
 </div>
@@ -384,15 +403,12 @@ textarea.form-input{resize:vertical;min-height:120px;line-height:1.7;}
         <div class="lp-infobox">
           <div class="lp-infobox-header lp-header-default">Links</div>
           <div class="lp-links-row">
-            <div class="lp-link-btn" onclick="window.open('https://github.com/itsKannapi','_blank')" title="GitHub">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
-            </div>
-            <div class="lp-link-btn" onclick="window.open('https://www.linkedin.com/in/joseph-tamondong-249587293/','_blank')" title="LinkedIn">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-            </div>
-            <div class="lp-link-btn" onclick="window.open('https://x.com/kankankannapi','_blank')" title="Twitter / X">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-            </div>
+            <a class="lp-link-btn" href="https://www.faceit.com/en/players/t4m0n" target="_blank" rel="noopener noreferrer" title="FACEIT" aria-label="FACEIT"><span class="lp-brand-icon lp-brand-faceit"></span></a>
+            <a class="lp-link-btn" href="https://www.instagram.com/joeyy.tamondong" target="_blank" rel="noopener noreferrer" title="Instagram" aria-label="Instagram"><span class="lp-brand-icon lp-brand-instagram"></span></a>
+            <a class="lp-link-btn" href="https://steamcommunity.com/profiles/76561199009614182" target="_blank" rel="noopener noreferrer" title="Steam" aria-label="Steam"><span class="lp-brand-icon lp-brand-steam"></span></a>
+            <a class="lp-link-btn" href="https://x.com/kankankannapi" target="_blank" rel="noopener noreferrer" title="X" aria-label="X"><span class="lp-brand-icon lp-brand-x"></span></a>
+            <a class="lp-link-btn" href="https://www.youtube.com/@jt92493" target="_blank" rel="noopener noreferrer" title="YouTube" aria-label="YouTube"><span class="lp-brand-icon lp-brand-youtube"></span></a>
+            <a class="lp-link-btn" href="https://www.twitch.tv/kankannapi" target="_blank" rel="noopener noreferrer" title="Twitch" aria-label="Twitch"><span class="lp-brand-icon lp-brand-twitch"></span></a>
           </div>
         </div>
 
@@ -543,10 +559,10 @@ textarea.form-input{resize:vertical;min-height:120px;line-height:1.7;}
       <span style="font-size:14px;color:var(--fg3);">↗</span>
     </div>
     <div class="project-list">
-      <div class="project-card"><div class="project-top"><span class="project-name">Clarity — Task Manager</span><span class="project-arrow">↗</span></div><p class="project-desc">A minimalist productivity app built with Next.js and Supabase. Features real-time sync, drag-and-drop, and natural language task entry.</p><div class="tag-row"><span class="tag">Next.js</span><span class="tag">TypeScript</span><span class="tag">Supabase</span></div></div>
+      <!--<div class="project-card"><div class="project-top"><span class="project-name">Clarity — Task Manager</span><span class="project-arrow">↗</span></div><p class="project-desc">A minimalist productivity app built with Next.js and Supabase. Features real-time sync, drag-and-drop, and natural language task entry.</p><div class="tag-row"><span class="tag">Next.js</span><span class="tag">TypeScript</span><span class="tag">Supabase</span></div></div> -->
       <div class="project-card"><div class="project-top"><span class="project-name">PingBoard — Status Page</span><span class="project-arrow">↗</span></div><p class="project-desc">Open-source uptime monitoring and status page tool. Self-hostable, lightweight, and designed for small teams.</p><div class="tag-row"><span class="tag">Node.js</span><span class="tag">React</span><span class="tag">PostgreSQL</span></div></div>
-      <div class="project-card"><div class="project-top"><span class="project-name">Heatmap.gg — Aim Tracker</span><span class="project-arrow">↗</span></div><p class="project-desc">A browser tool that overlays your mouse movement heatmaps from FPS games to identify aim habits and weaknesses.</p><div class="tag-row"><span class="tag">Canvas API</span><span class="tag">Python</span><span class="tag">FastAPI</span></div></div>
-      <div class="project-card"><div class="project-top"><span class="project-name">Foliokit — Portfolio Starter</span><span class="project-arrow">↗</span></div><p class="project-desc">A free, open-source portfolio template for developers. Zero dependencies, fully customizable, deploys in one click.</p><div class="tag-row"><span class="tag">HTML/CSS</span><span class="tag">Vanilla JS</span><span class="tag">Open Source</span></div></div>
+      <div class="project-card"><div class="project-top"><span class="project-name">the EHub</span><span class="project-arrow">↗</span></div><p class="project-desc">An esports hub that tracks multiple titles and provides real-time statistics.</p><div class="tag-row"><span class="tag">Canvas API</span><span class="tag">Python</span><span class="tag">FastAPI</span></div></div>
+      <div class="project-card"><div class="project-top"><span class="project-name">Smart Home Mirror</span><span class="project-arrow">↗</span></div><p class="project-desc">Using a two way mirror, this project aims to create a smart home solution that provides a seamless integration with my daily life.</p><div class="tag-row"><span class="tag">Windows</span><span class="tag">Vanilla JS</span><span class="tag">Open Source</span><span class="tag">Command Prompt</span></div></div>
     </div>
   </div>
 </div>
@@ -563,15 +579,15 @@ textarea.form-input{resize:vertical;min-height:120px;line-height:1.7;}
     </div>
     <div class="resume-section">
       <div class="resume-section-title">Experience</div>
-      <div class="resume-item">
+      <!-- <div class="resume-item">
         <div class="resume-item-top"><span class="resume-item-title">Senior Frontend Engineer</span><span class="resume-item-date">2023 – Present</span></div>
         <div class="resume-item-sub">Notion · Remote</div>
         <div class="resume-item-desc">Lead development of core editor features. Improved page load performance by 40% and shipped the new mobile navigation redesign.</div>
-      </div>
+      </div> -->
       <div class="resume-item">
-        <div class="resume-item-top"><span class="resume-item-title">Full-Stack Developer</span><span class="resume-item-date">2021 – 2023</span></div>
-        <div class="resume-item-sub">Linear · San Francisco, CA</div>
-        <div class="resume-item-desc">Built integrations with GitHub, Figma, and Slack. Maintained the public API and contributed to the real-time sync engine.</div>
+        <div class="resume-item-top"><span class="resume-item-title">Engineering Student Ambassador</span><span class="resume-item-date">2023 – 2024</span></div>
+        <div class="resume-item-sub">Chicago, IL</div>
+        <div class="resume-item-desc">Directly supported the Dean of Wright’s Engineering program with program operations, events, and student engagement activities. Efficient with MS Office applications and hands-on tasks.</div>
       </div>
     </div>
     <div class="resume-section">
